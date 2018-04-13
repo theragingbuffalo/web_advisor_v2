@@ -1,1 +1,3 @@
 # web_advisor_v2
+
+The app should roughly serve the same purpose as the class search page on Gustavus's WebAdvisor, with some additional features and some features missing. The user should be able to search for classes based on class title, instructor, department, area approval, course level and number, time, and description keywords. The user should be able to save classes to a personal "collection" for future reference. The app should query the list of all class sections on the Gustavus web page for up-to-date information. It should also query RateMyProfessor and provide information about the professor for each class, if available. 
