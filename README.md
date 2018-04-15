@@ -12,6 +12,8 @@ All narratives are written from the perspective of a Gustavus student, since the
 
 "WebAdvisor is fine for the most part, but I don't always have access to a computer when I want to search for classes and it's really annoying to try to use it on my phone. I wish I could just bring up the course listings quickly with an app, search through them just like I can on WebAdvisor, and save them for later."
 
-![](images/figure_1.jpg)
-![](images/figure_2.png)
-![](images/figure_3.jpg)
+| ![Fig. 1](images/figure_1.jpg) | ![Fig. 2](images/figure_2.png) | ![Fig. 3](images/figure_3.jpg) |
+|:--:|:--:|:--:|
+| *Fig. 1* | *Fig. 2* | *Fig. 3* |
+
+Fig. 1 shows the page displayed on app launch, with various possible search functions ability to change search mechanics. Fig. 2 shows the results page for a particular search; some basic class information is displayed on the left, and professor information from RateMyProfessors on the right. Clicking on the left of a listing will bring up a detailed class view (Fig. 3), while clicking on right will take the user to the RateMyProfessors page.
