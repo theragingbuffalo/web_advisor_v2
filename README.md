@@ -12,4 +12,4 @@ All narratives are written from the perspective of a Gustavus student, since the
 
 "WebAdvisor is fine for the most part, but I don't always have access to a computer when I want to search for classes and it's really annoying to try to use it on my phone. I wish I could just bring up the course listings quickly with an app, search through them just like I can on WebAdvisor, and save them for later."
 
-![](images/figure_1.jpg)
+![](images/figure_1.jpg = 500x)
