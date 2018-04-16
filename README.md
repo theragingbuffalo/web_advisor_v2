@@ -16,4 +16,4 @@ All narratives are written from the perspective of a Gustavus student, since the
 |:--:|:--:|:--:|
 | *Fig. 1* | *Fig. 2* | *Fig. 3* |
 
-Fig. 1 shows the page displayed on app launch, with various possible search functions ability to change search mechanics. Fig. 2 shows the results page for a particular search; some basic class information is displayed on the left, and professor information from RateMyProfessors on the right. Clicking on the left of a listing will bring up a detailed class view (Fig. 3), while clicking on right will take the user to the RateMyProfessors page.
+Fig. 1 shows the page displayed on app launch, with various possible search functions and the ability to change search mechanics. Fig. 2 shows the results page for a particular search; some basic class information is displayed on the left, and professor information from RateMyProfessors on the right. Clicking on the left of a listing will bring up a detailed class view (Fig. 3), while clicking on right will take the user to the RateMyProfessors page.
