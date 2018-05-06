@@ -16,8 +16,9 @@ public class ClassListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ClassAdapter mAdapter;
 
-    public static ClassListFragment newInstance() {
+    public static ClassListFragment newInstance(String searchParam) {
         Bundle args = new Bundle();
+        args.putString("searchParam", searchParam);
 
         ClassListFragment fragment = new ClassListFragment();
         fragment.setArguments(args);
@@ -39,8 +40,9 @@ public class ClassListFragment extends Fragment {
     }
 
     private void updateUI() {
+        Bundle bundle = getArguments();
         ClassRoom classRoom = ClassRoom.get(getActivity());
-        List<Class> classes = classRoom.getClasses();
+        List<Class> classes = classRoom.getClasses(bundle.getString("searchParam"));
 
         mAdapter = new ClassAdapter(classes);
         mRecyclerView.setAdapter(mAdapter);

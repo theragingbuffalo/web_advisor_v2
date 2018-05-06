@@ -4,4 +4,64 @@
     <string name="crime_title_label">Title</string>
     <string name="crime_details_label">Details</string>
     <string name="crime_solved_label">Solved</string>
+    <string-array name="area_approvals">
+        <item>Select Area Approval</item>
+        <item>ACT</item>
+        <item>ARTS</item>
+        <item>EXP</item>
+        <item>FIT</item>
+        <item>GLOBL</item>
+        <item>HIPHI</item>
+        <item>LARS</item>
+        <item>MATHL</item>
+        <item>NASP</item>
+        <item>NWEST</item>
+        <item>SOSCI</item>
+        <item>THEOL</item>
+        <item>WRITD</item>
+        <item>WRITI</item>
+    </string-array>
+    <string-array name="departments">
+        <item>Select Department</item>
+        <item>AFS</item>
+        <item>ART</item>
+        <item>BIO</item>
+        <item>CHE</item>
+        <item>CLA</item>
+        <item>COM</item>
+        <item>CUR</item>
+        <item>E/M</item>
+        <item>EDU</item>
+        <item>ENG</item>
+        <item>ENV</item>
+        <item>FRE</item>
+        <item>FTS</item>
+        <item>GEG</item>
+        <item>GEO</item>
+        <item>GER</item>
+        <item>GRE</item>
+        <item>GWS</item>
+        <item>HES</item>
+        <item>HIS</item>
+        <item>IDS</item>
+        <item>JPN</item>
+        <item>LAT</item>
+        <item>MCS</item>
+        <item>MLC</item>
+        <item>MUS</item>
+        <item>NDL</item>
+        <item>NUR</item>
+        <item>PCS</item>
+        <item>PHI</item>
+        <item>PHY</item>
+        <item>POL</item>
+        <item>PSY</item>
+        <item>REL</item>
+        <item>RUS</item>
+        <item>S/A</item>
+        <item>SCA</item>
+        <item>SPA</item>
+        <item>SWE</item>
+        <item>T/D</item>
+    </string-array>
 </resources>
