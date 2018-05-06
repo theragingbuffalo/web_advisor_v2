@@ -16,6 +16,14 @@ public class ClassListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ClassAdapter mAdapter;
 
+    public static ClassListFragment newInstance() {
+        Bundle args = new Bundle();
+
+        ClassListFragment fragment = new ClassListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +53,9 @@ public class ClassListFragment extends Fragment {
 
         private TextView mTitleTextView;
         private TextView mProfTextView;
+        private TextView mCodeTextView;
+        private TextView mTimeTextView;
+        private TextView mDaysTextView;
 
         public ClassHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_class, parent, false));
@@ -52,12 +63,18 @@ public class ClassListFragment extends Fragment {
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.class_title);
             mProfTextView = (TextView) itemView.findViewById(R.id.class_prof);
+            mCodeTextView = (TextView) itemView.findViewById(R.id.class_code);
+            mTimeTextView = (TextView) itemView.findViewById(R.id.class_time);
+            mDaysTextView = (TextView) itemView.findViewById(R.id.class_days);
         }
 
         public void bind(Class course) {
             mClass = course;
             mTitleTextView.setText(mClass.getTitle());
             mProfTextView.setText(mClass.getProfessor());
+            mCodeTextView.setText(mClass.getCode());
+            mTimeTextView.setText(mClass.getStart() + " - " + mClass.getEnd());
+            mDaysTextView.setText(mClass.getMeetingDays());
         }
 
         @Override

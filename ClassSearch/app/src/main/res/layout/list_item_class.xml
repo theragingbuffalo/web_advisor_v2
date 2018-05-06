@@ -1,23 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
               android:padding="8dp">
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:id="@+id/class_title"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Class Title"
-        android:padding="4dp"/>
 
     <TextView
+        android:id="@+id/class_title"
         style="?android:listSeparatorTextViewStyle"
-        android:id="@+id/class_prof"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:text="Class Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/class_prof"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
         android:text="Class Prof"
-        android:padding="4dp"/>
-</LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/class_code" />
+
+    <TextView
+        android:id="@+id/class_code"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:text="Code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/class_time"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:text="Time"
+        app:layout_constraintStart_toEndOf="@+id/class_prof"
+        app:layout_constraintTop_toBottomOf="@+id/class_code" />
+
+    <TextView
+        android:id="@+id/class_days"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:text="Days"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/class_time"
+        app:layout_constraintTop_toBottomOf="@+id/class_title" />
+
+</android.support.constraint.ConstraintLayout>

@@ -8,9 +8,24 @@ public class Class {
     private UUID mId;
     private String mTitle;
     private String mProfessor;
+    private int mSynonym;
+    private String mCode;
+    private String mApprovals;
+    private String mMeetingDays;
+    private String mStart;
+    private String mEnd;
 
-    public Class() {
+    public Class(String code, int synonym, String title, String meetingDays,
+                 String start, String end, String professor, String approvals) {
         mId = UUID.randomUUID();
+        mCode = code;
+        mSynonym = synonym;
+        mTitle = title;
+        mMeetingDays = meetingDays;
+        mStart = start;
+        mEnd = end;
+        mProfessor = professor;
+        mApprovals = approvals;
     }
 
     public UUID getId() {
@@ -21,15 +36,31 @@ public class Class {
         return mTitle;
     }
 
-    public void setTitle(String title) {
-        mTitle = title;
-    }
-
     public String getProfessor() {
         return mProfessor;
     }
 
-    public void setProfessor(String prof) {
-        mProfessor = prof;
+    public int getSynonym() {
+        return mSynonym;
+    }
+
+    public String getCode() {
+        return mCode;
+    }
+
+    public String getApprovals() {
+        return mApprovals;
+    }
+
+    public String getMeetingDays() {
+        return mMeetingDays;
+    }
+
+    public String getStart() {
+        return mStart;
+    }
+
+    public String getEnd() {
+        return mEnd;
     }
 }

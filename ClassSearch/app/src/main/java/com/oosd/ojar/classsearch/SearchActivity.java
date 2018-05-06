@@ -1,13 +1,10 @@
 package com.oosd.ojar.classsearch;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
-public class SearchActivity extends AppCompatActivity {
-
+public class SearchActivity extends SingleFragmentActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+    protected Fragment createFragment() {
+        return new SearchFragment();
     }
 }

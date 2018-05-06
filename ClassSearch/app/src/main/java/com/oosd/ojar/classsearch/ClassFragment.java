@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class ClassFragment extends Fragment {
 
-    private Class mClass;
+    /*private Class mClass;
     private EditText mTitleField;
 
     @Override
@@ -44,5 +44,5 @@ public class ClassFragment extends Fragment {
         });
 
         return v;
-    }
+    }*/
 }

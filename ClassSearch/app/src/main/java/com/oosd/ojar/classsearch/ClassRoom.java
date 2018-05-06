@@ -21,13 +21,9 @@ public class ClassRoom {
 
     private ClassRoom(Context context) {
         mClasses = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            Class course = new Class();
-            course.setTitle("Class #" + i);
-            course.setProfessor("San #" + i);
-            mClasses.add(course);
-        }
     }
+
+    public void addClasses(ArrayList<Class> classes) { mClasses.addAll(classes); }
 
     public List<Class> getClasses() {
         return mClasses;
