@@ -57,23 +57,17 @@ public class ClassFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_class, container, false);
         Bundle bundle = getArguments();
-        mTitleField = (TextView) v.findViewById( R.id.classTitle);
-        mTitleField.setText( bundle.getString( ARG_CLASS_TITLE ) );
-        mCodeField = (TextView) v.findViewById( R.id.classTitle);
-        mCodeField.setText( bundle.getString( ARG_CLASS_CODE ) );
-        mTimeField = (TextView) v.findViewById( R.id.classTimes);
-        mTimeField.setText( bundle.getString( ARG_CLASS_MEETINGDAYS ) );
-        mApprovalsField= (TextView) v.findViewById( R.id.classApprovals);
-        mApprovalsField.setText( bundle.getString( ARG_CLASS_APPROVALS ) );
-        mProfField = (TextView) v.findViewById( R.id.classProf);
-        mProfField.setText( bundle.getString( ARG_CLASS_PROFESSOR) );
-
+        mTitleField = (TextView) v.findViewById(R.id.classTitle);
+        mTitleField.setText(bundle.getString(ARG_CLASS_TITLE));
+        mCodeField = (TextView) v.findViewById(R.id.classCode);
+        mCodeField.setText(bundle.getString(ARG_CLASS_CODE ));
+        mTimeField = (TextView) v.findViewById(R.id.classTimes);
+        mTimeField.setText(bundle.getString(ARG_CLASS_MEETINGDAYS) + " " + bundle.getString(ARG_CLASS_START) + " - " + bundle.getString(ARG_CLASS_END));
+        mApprovalsField= (TextView) v.findViewById(R.id.classApprovals);
+        mApprovalsField.setText(bundle.getString(ARG_CLASS_APPROVALS));
+        mProfField = (TextView) v.findViewById(R.id.classProf);
+        mProfField.setText(bundle.getString(ARG_CLASS_PROFESSOR));
 
         return v;
-
-
-
-
-
     }
 }

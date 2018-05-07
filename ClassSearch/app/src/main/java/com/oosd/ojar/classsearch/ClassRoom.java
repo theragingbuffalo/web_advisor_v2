@@ -28,9 +28,14 @@ public class ClassRoom {
     public void addClasses(ArrayList<Class> classes) { mClasses.addAll(classes); }
 
     public List<Class> getClasses(String searchParam) {
-        if (searchParam.isEmpty()) return mClasses;
+        if (searchParam.isEmpty())
+        {
+            Log.d("tag", "here");
+            return mClasses;
+        }
         else
         {
+            Log.d("tag", searchParam);
             List<Class> classes = new ArrayList<>();
             classes.addAll(mClasses);
             String[] rules = searchParam.split("&&");

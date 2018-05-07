@@ -40,7 +40,7 @@ public class SearchFragment extends Fragment {
                 if (!areaApproval.equals("Select Area Approval"))
                     param += "AREA:" + areaApproval + "&&";
                 String department = mDepartmentSpinner.getSelectedItem().toString();
-                if (!areaApproval.equals("Select Department"))
+                if (!department.equals("Select Department"))
                     param += "DEP:" + department + "&&";
                 if (!param.isEmpty()) param = param.substring(0, param.length() - 2);
                 intent.putExtra("searchParam", param);
