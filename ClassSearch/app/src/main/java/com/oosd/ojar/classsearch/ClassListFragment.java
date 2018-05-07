@@ -1,5 +1,6 @@
 package com.oosd.ojar.classsearch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -81,9 +82,12 @@ public class ClassListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(getActivity(),
+            /*Toast.makeText(getActivity(),
                     mClass.getTitle() + " clicked!", Toast.LENGTH_SHORT)
-                    .show();
+                    .show();*/
+            Intent intent = ClassActivity.newIntent( getActivity(), mClass.getTitle(),  mClass.getSynonym(), mClass.getCode(), mClass.getMeetingDays(),
+                    mClass.getStart(), mClass.getEnd(), mClass.getProfessor(), mClass.getApprovals());
+            getActivity().startActivity( intent );
         }
     }
 
