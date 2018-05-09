@@ -85,8 +85,7 @@ public class ClassListFragment extends Fragment {
             /*Toast.makeText(getActivity(),
                     mClass.getTitle() + " clicked!", Toast.LENGTH_SHORT)
                     .show();*/
-            Intent intent = ClassActivity.newIntent( getActivity(), mClass.getCode(),  mClass.getSynonym(), mClass.getTitle(), mClass.getMeetingDays(),
-                    mClass.getStart(), mClass.getEnd(), mClass.getProfessor(), mClass.getApprovals());
+            Intent intent = ClassActivity.newIntent(getActivity(), mClass.getId());
             getActivity().startActivity( intent );
         }
     }

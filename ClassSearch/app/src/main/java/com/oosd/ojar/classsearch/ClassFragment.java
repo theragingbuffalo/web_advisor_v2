@@ -12,35 +12,22 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 import java.lang.ref.SoftReference;
+import java.util.UUID;
 
 
 public class ClassFragment extends Fragment {
 
-    private static final String ARG_CLASS_CODE = "class_code";
-    private static final String ARG_CLASS_SYNONYM = "class_synonym";
-    private static final String ARG_CLASS_TITLE = "class_title";
-    private static final String ARG_CLASS_MEETINGDAYS = "class_meetingdays";
-    private static final String ARG_CLASS_START = "class_start";
-    private static final String ARG_CLASS_END = "class_end";
-    private static final String ARG_CLASS_PROFESSOR = "class_professor";
-    private static final String ARG_CLASS_APPROVALS = "class_approvals";
+    private static final String ARG_CLASS_ID = "class_id";
     private TextView mTitleField;
     private TextView mCodeField;
     private TextView mTimeField;
     private TextView mProfField;
     private TextView mApprovalsField;
+    private Class mClass;
 
-    public static ClassFragment newInstance(String code, int synonym, String title, String meetingDays,
-                                            String start, String end, String professor, String approvals) {
+    public static ClassFragment newInstance(UUID id) {
         Bundle args = new Bundle();
-        args.putSerializable(ARG_CLASS_CODE, code);
-        args.putSerializable(ARG_CLASS_SYNONYM, synonym );
-        args.putSerializable(ARG_CLASS_TITLE, title);
-        args.putSerializable(ARG_CLASS_MEETINGDAYS, meetingDays);
-        args.putSerializable(ARG_CLASS_START, start);
-        args.putSerializable(ARG_CLASS_END, end);
-        args.putSerializable(ARG_CLASS_PROFESSOR, professor);
-        args.putSerializable(ARG_CLASS_APPROVALS, approvals);
+        args.putSerializable(ARG_CLASS_ID, id);
 
         ClassFragment fragment = new ClassFragment();
         fragment.setArguments(args);
@@ -57,16 +44,17 @@ public class ClassFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_class, container, false);
         Bundle bundle = getArguments();
+        mClass = ClassRoom.get(getActivity()).getClass((UUID)bundle.getSerializable(ARG_CLASS_ID));
         mTitleField = (TextView) v.findViewById(R.id.classTitle);
-        mTitleField.setText(bundle.getString(ARG_CLASS_TITLE));
+        mTitleField.setText(mClass.getTitle());
         mCodeField = (TextView) v.findViewById(R.id.classCode);
-        mCodeField.setText(bundle.getString(ARG_CLASS_CODE ));
+        mCodeField.setText(mClass.getCode());
         mTimeField = (TextView) v.findViewById(R.id.classTimes);
-        mTimeField.setText(bundle.getString(ARG_CLASS_MEETINGDAYS) + " " + bundle.getString(ARG_CLASS_START) + " - " + bundle.getString(ARG_CLASS_END));
+        mTimeField.setText(mClass.getMeetingDays() + " " + mClass.getStart() + " - " + mClass.getEnd());
         mApprovalsField= (TextView) v.findViewById(R.id.classApprovals);
-        mApprovalsField.setText(bundle.getString(ARG_CLASS_APPROVALS));
+        mApprovalsField.setText(mClass.getApprovals());
         mProfField = (TextView) v.findViewById(R.id.classProf);
-        mProfField.setText(bundle.getString(ARG_CLASS_PROFESSOR));
+        mProfField.setText(mClass.getProfessor());
 
         return v;
     }
