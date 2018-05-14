@@ -39,28 +39,27 @@ public class ClassRoom {
             List<Class> classes = new ArrayList<>();
             classes.addAll(mClasses);
             String[] rules = searchParam.split("&&");
-            for (String rule : rules)
-            {
-                if (rule.substring(0, rule.indexOf(':')).equals("AREA"))
-                {
-                    String area = rule.substring(rule.indexOf(':') + 1);
+            for (String rule : rules) {
+                if (rule.equals("ISSAVED")) {
                     ListIterator<Class> iter = classes.listIterator();
-                    while(iter.hasNext())
-                    {
-                        if(!iter.next().getApprovals().contains(area))
-                        {
+                    while(iter.hasNext()) {
+                        if(!iter.next().isSaved()) {
                             iter.remove();
                         }
                     }
                 }
-                else if (rule.substring(0, rule.indexOf(':')).equals("DEP"))
-                {
+                else if (rule.substring(0, rule.indexOf(':')).equals("AREA")) {
+                    String area = rule.substring(rule.indexOf(':') + 1);
+                    ListIterator<Class> iter = classes.listIterator();
+                    while (iter.hasNext()) {
+                        if (!iter.next().getApprovals().contains(area)) {
+                            iter.remove(); }
+                    }
+                } else if (rule.substring(0, rule.indexOf(':')).equals("DEP")) {
                     String department = rule.substring(rule.indexOf(':') + 1);
                     ListIterator<Class> iter = classes.listIterator();
-                    while(iter.hasNext())
-                    {
-                        if(!iter.next().getCode().contains(department))
-                        {
+                    while (iter.hasNext()) {
+                        if (!iter.next().getCode().contains(department)) {
                             iter.remove();
                         }
                     }
@@ -69,6 +68,7 @@ public class ClassRoom {
             return classes;
         }
     }
+
 
     public Class getClass(UUID id) {
         for (Class course : mClasses) {

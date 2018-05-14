@@ -53,7 +53,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ClassListActivity.class);
-                String param = "";
+                String param = "ISSAVED" + "&&";
                 intent.putExtra("searchParam", param);
                 getActivity().startActivity(intent);
             }
