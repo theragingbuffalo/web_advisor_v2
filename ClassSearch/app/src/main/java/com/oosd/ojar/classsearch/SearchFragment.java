@@ -16,6 +16,7 @@ import android.widget.Spinner;
 
 public class SearchFragment extends Fragment {
     private Button mSearchButton;
+    private Button mSeeSavedButton;
     private Spinner mAreaSpinner;
     private Spinner mDepartmentSpinner;
     private SearchActivity mSearchActivity;
@@ -47,6 +48,17 @@ public class SearchFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+        mSeeSavedButton = (Button)view.findViewById(R.id.toSaved_button);
+        mSeeSavedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ClassListActivity.class);
+                String param = "";
+                intent.putExtra("searchParam", param);
+                getActivity().startActivity(intent);
+            }
+        });
+
         return view;
     }
 }

@@ -42,4 +42,17 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/saveBoolean"
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Class"/>
 </LinearLayout>

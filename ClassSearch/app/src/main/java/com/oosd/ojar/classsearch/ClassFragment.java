@@ -7,8 +7,11 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import java.io.Serializable;
 import java.lang.ref.SoftReference;
@@ -24,6 +27,8 @@ public class ClassFragment extends Fragment {
     private TextView mProfField;
     private TextView mApprovalsField;
     private Class mClass;
+    private TextView mSaved;
+    private Button mSaveButton;
 
     public static ClassFragment newInstance(UUID id) {
         Bundle args = new Bundle();
@@ -55,6 +60,16 @@ public class ClassFragment extends Fragment {
         mApprovalsField.setText(mClass.getApprovals());
         mProfField = (TextView) v.findViewById(R.id.classProf);
         mProfField.setText(mClass.getProfessor());
+        mSaved = (TextView) v.findViewById(R.id.saveBoolean);
+        mSaved.setText(String.valueOf(mClass.isSaved()));
+        mSaveButton = (Button) v.findViewById(R.id.saveButton);
+        //mSaveButton.setText(mClass.getDate().toString());
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mClass.toggleSave();
+                mSaved.setText(String.valueOf(mClass.isSaved()));
+            }
+        });
 
         return v;
     }

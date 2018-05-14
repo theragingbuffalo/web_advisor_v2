@@ -4,6 +4,8 @@
     <string name="crime_title_label">Title</string>
     <string name="crime_details_label">Details</string>
     <string name="crime_solved_label">Solved</string>
+    <string name="save_button_label">Save Class</string>
+    <string name="remove_button_label">Remove from saved classes</string>
     <string-array name="area_approvals">
         <item>Select Area Approval</item>
         <item>ACT</item>

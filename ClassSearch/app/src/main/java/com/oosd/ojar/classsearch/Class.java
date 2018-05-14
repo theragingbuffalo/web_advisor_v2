@@ -14,6 +14,7 @@ public class Class {
     private String mMeetingDays;
     private String mStart;
     private String mEnd;
+    private boolean mIsSaved;
 
     public Class(String code, int synonym, String title, String meetingDays,
                  String start, String end, String professor, String approvals) {
@@ -26,6 +27,7 @@ public class Class {
         mEnd = end;
         mProfessor = professor;
         mApprovals = approvals;
+        mIsSaved = false;
     }
 
     public UUID getId() {
@@ -62,5 +64,13 @@ public class Class {
 
     public String getEnd() {
         return mEnd;
+    }
+
+    public void toggleSave() {
+        mIsSaved = !mIsSaved;
+    }
+
+    public boolean isSaved() {
+        return mIsSaved;
     }
 }
