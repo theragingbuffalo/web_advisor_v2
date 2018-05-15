@@ -14,6 +14,7 @@ public class Class {
     private String mMeetingDays;
     private String mStart;
     private String mEnd;
+    private String mDescription;
     private boolean mIsSaved;
 
     public Class(String code, int synonym, String title, String meetingDays,
@@ -73,4 +74,6 @@ public class Class {
     public boolean isSaved() {
         return mIsSaved;
     }
+
+    public void setDescription(String description) { mDescription = description; }
 }
