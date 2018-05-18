@@ -29,7 +29,7 @@ public class ClassFragment extends Fragment {
     private Class mClass;
     private TextView mSaved;
     private Button mSaveButton;
-    private TextView mDescription;
+    private TextView mDescriptionField;
 
     public static ClassFragment newInstance(UUID id) {
         Bundle args = new Bundle();
@@ -55,8 +55,8 @@ public class ClassFragment extends Fragment {
         mTitleField.setText(mClass.getTitle());
         mCodeField = (TextView) v.findViewById(R.id.classCode);
         mCodeField.setText(mClass.getCode());
-        mDescription = (TextView) v.findViewById(R.id.description);
-        mDescription.setText(mClass.getDescription());
+        mDescriptionField = (TextView) v.findViewById(R.id.description);
+        mDescriptionField.setText(mClass.getDescription());
         mTimeField = (TextView) v.findViewById(R.id.classTimes);
         mTimeField.setText(mClass.getMeetingDays() + " " + mClass.getStart() + " - " + mClass.getEnd());
         mApprovalsField= (TextView) v.findViewById(R.id.classApprovals);
