@@ -29,6 +29,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         new DownloadListings((SearchActivity)getActivity()).execute("https://gustavus.edu/registrar/webadvisor/mstrfall.html");
+        new DownloadDescriptions((SearchActivity)getActivity()).execute();
         mAreaSpinner = (Spinner)view.findViewById(R.id.area_spinner);
         mDepartmentSpinner = (Spinner)view.findViewById(R.id.department_spinner);
         mSearchButton = (Button)view.findViewById(R.id.search_button);
