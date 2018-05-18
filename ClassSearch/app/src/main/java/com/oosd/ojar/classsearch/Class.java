@@ -67,6 +67,8 @@ public class Class {
         return mEnd;
     }
 
+    public String getDescription(){return mDescription;}
+
     public void toggleSave() {
         mIsSaved = !mIsSaved;
     }

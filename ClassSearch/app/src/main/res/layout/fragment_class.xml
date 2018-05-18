@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_margin="16dp"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:background="@drawable/images1">
 
 
     <TextView
@@ -50,9 +51,30 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"/>
 
-    <Button
-        android:id="@+id/saveButton"
+    <TextView
+        android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save Class"/>
+        android:layout_height="220dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:text="TextView"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:text="Save Class"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="223dp" />
+    </RelativeLayout>
+
 </LinearLayout>

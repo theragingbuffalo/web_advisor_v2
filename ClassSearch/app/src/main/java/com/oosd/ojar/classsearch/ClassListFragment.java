@@ -59,6 +59,7 @@ public class ClassListFragment extends Fragment {
         private TextView mCodeTextView;
         private TextView mTimeTextView;
         private TextView mDaysTextView;
+        private TextView mDescriptionTV;
 
         public ClassHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_class, parent, false));
@@ -69,6 +70,7 @@ public class ClassListFragment extends Fragment {
             mCodeTextView = (TextView) itemView.findViewById(R.id.class_code);
             mTimeTextView = (TextView) itemView.findViewById(R.id.class_time);
             mDaysTextView = (TextView) itemView.findViewById(R.id.class_days);
+            mDescriptionTV =(TextView) itemView.findViewById(R.id.description);
         }
 
         public void bind(Class course) {
@@ -78,6 +80,7 @@ public class ClassListFragment extends Fragment {
             mCodeTextView.setText(mClass.getCode());
             mTimeTextView.setText(mClass.getStart() + " - " + mClass.getEnd());
             mDaysTextView.setText(mClass.getMeetingDays());
+            mDescriptionTV.setText(mClass.getDescription() );
         }
 
         @Override
