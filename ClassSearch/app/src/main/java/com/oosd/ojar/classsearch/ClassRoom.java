@@ -63,6 +63,15 @@ public class ClassRoom {
                             iter.remove();
                         }
                     }
+                } else if (rule.substring(0, rule.indexOf(':')).equals("TK")) {
+                    String title_keyword = rule.substring(rule.indexOf(':') + 1);
+                    ListIterator<Class> iter = classes.listIterator();
+                    while (iter.hasNext()) {
+                        Class c = iter.next();
+                        if (!c.getTitle().toLowerCase().contains(title_keyword) && !c.getDescription().toLowerCase().contains(title_keyword)) {
+                            iter.remove();
+                        }
+                    }
                 }
             }
             return classes;

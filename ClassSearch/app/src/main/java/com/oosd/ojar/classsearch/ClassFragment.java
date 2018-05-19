@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,10 +27,10 @@ public class ClassFragment extends Fragment {
     private TextView mTimeField;
     private TextView mProfField;
     private TextView mApprovalsField;
+    private TextView mDescriptionField;
     private Class mClass;
     private TextView mSaved;
     private Button mSaveButton;
-    private TextView mDescriptionField;
 
     public static ClassFragment newInstance(UUID id) {
         Bundle args = new Bundle();
@@ -55,8 +56,6 @@ public class ClassFragment extends Fragment {
         mTitleField.setText(mClass.getTitle());
         mCodeField = (TextView) v.findViewById(R.id.classCode);
         mCodeField.setText(mClass.getCode());
-        mDescriptionField = (TextView) v.findViewById(R.id.description);
-        mDescriptionField.setText(mClass.getDescription());
         mTimeField = (TextView) v.findViewById(R.id.classTimes);
         mTimeField.setText(mClass.getMeetingDays() + " " + mClass.getStart() + " - " + mClass.getEnd());
         mApprovalsField= (TextView) v.findViewById(R.id.classApprovals);
@@ -65,12 +64,18 @@ public class ClassFragment extends Fragment {
         mProfField.setText(mClass.getProfessor());
         mSaved = (TextView) v.findViewById(R.id.saveBoolean);
         mSaved.setText(String.valueOf(mClass.isSaved()));
+        mDescriptionField = (TextView) v.findViewById(R.id.description);
+        mDescriptionField.setText(String.valueOf(mClass.getDescription()));
+        mDescriptionField.setMovementMethod(new ScrollingMovementMethod());
         mSaveButton = (Button) v.findViewById(R.id.saveButton);
-        //mSaveButton.setText(mClass.getDate().toString());
+        if (mClass.isSaved()) mSaveButton.setText("Unsave Class");
+        else mSaveButton.setText("Save Class");
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mClass.toggleSave();
                 mSaved.setText(String.valueOf(mClass.isSaved()));
+                if (mClass.isSaved()) mSaveButton.setText("Unsave Class");
+                else mSaveButton.setText("Save Class");
             }
         });
 
