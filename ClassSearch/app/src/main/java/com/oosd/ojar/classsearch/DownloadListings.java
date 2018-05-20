@@ -59,5 +59,6 @@ public class DownloadListings extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String s) {
         ClassRoom.get(mSearchActivity).addClasses(mClasses);
+        new DownloadDescriptions(mSearchActivity).execute();
     }
 }
