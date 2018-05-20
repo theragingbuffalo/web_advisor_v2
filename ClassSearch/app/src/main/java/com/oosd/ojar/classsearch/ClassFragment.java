@@ -29,7 +29,6 @@ public class ClassFragment extends Fragment {
     private TextView mApprovalsField;
     private TextView mDescriptionField;
     private Class mClass;
-    private TextView mSaved;
     private Button mSaveButton;
 
     public static ClassFragment newInstance(UUID id) {
@@ -62,8 +61,6 @@ public class ClassFragment extends Fragment {
         mApprovalsField.setText(mClass.getApprovals());
         mProfField = (TextView) v.findViewById(R.id.classProf);
         mProfField.setText(mClass.getProfessor());
-        mSaved = (TextView) v.findViewById(R.id.saveBoolean);
-        mSaved.setText(String.valueOf(mClass.isSaved()));
         mDescriptionField = (TextView) v.findViewById(R.id.description);
         mDescriptionField.setText(String.valueOf(mClass.getDescription()));
         mDescriptionField.setMovementMethod(new ScrollingMovementMethod());
@@ -73,7 +70,6 @@ public class ClassFragment extends Fragment {
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mClass.toggleSave();
-                mSaved.setText(String.valueOf(mClass.isSaved()));
                 if (mClass.isSaved()) mSaveButton.setText("Unsave Class");
                 else mSaveButton.setText("Save Class");
             }
