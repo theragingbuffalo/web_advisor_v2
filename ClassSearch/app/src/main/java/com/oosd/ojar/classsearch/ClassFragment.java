@@ -50,7 +50,8 @@ public class ClassFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_class, container, false);
         Bundle bundle = getArguments();
-        mClass = ClassRoom.get(getActivity()).getClass((UUID)bundle.getSerializable(ARG_CLASS_ID));
+        mClass = ClassRoom.get(getActivity()).getClass((UUID)bundle.getSerializable(ARG_CLASS_ID)); // get class by ID
+        // populate data fields
         mTitleField = (TextView) v.findViewById(R.id.classTitle);
         mTitleField.setText(mClass.getTitle());
         mCodeField = (TextView) v.findViewById(R.id.classCode);
@@ -64,7 +65,7 @@ public class ClassFragment extends Fragment {
         mDescriptionField = (TextView) v.findViewById(R.id.description);
         mDescriptionField.setText(String.valueOf(mClass.getDescription()));
         mDescriptionField.setMovementMethod(new ScrollingMovementMethod());
-        mSaveButton = (Button) v.findViewById(R.id.saveButton);
+        mSaveButton = (Button) v.findViewById(R.id.saveButton); // button to save/unsave classes
         if (mClass.isSaved()) mSaveButton.setText("Unsave Class");
         else mSaveButton.setText("Save Class");
         mSaveButton.setOnClickListener(new View.OnClickListener() {

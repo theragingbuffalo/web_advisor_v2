@@ -30,7 +30,6 @@ public class ClassRoom {
     public List<Class> getClasses(String searchParam) {
         if (searchParam.isEmpty())
         {
-            Log.d("tag", "here");
             return mClasses;
         }
         else
@@ -39,7 +38,7 @@ public class ClassRoom {
             List<Class> classes = new ArrayList<>();
             classes.addAll(mClasses);
             String[] rules = searchParam.split("&&");
-            for (String rule : rules) {
+            for (String rule : rules) { // filter class for each rule in &&-connected search parameter (remove classes that don't match)
                 if (rule.equals("ISSAVED")) {
                     ListIterator<Class> iter = classes.listIterator();
                     while(iter.hasNext()) {

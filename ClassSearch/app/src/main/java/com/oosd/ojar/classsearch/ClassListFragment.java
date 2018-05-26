@@ -60,7 +60,7 @@ public class ClassListFragment extends Fragment {
         private TextView mTimeTextView;
         private TextView mDaysTextView;
 
-        public ClassHolder(LayoutInflater inflater, ViewGroup parent) {
+        public ClassHolder(LayoutInflater inflater, ViewGroup parent) { // called for each class in RecyclerView
             super(inflater.inflate(R.layout.list_item_class, parent, false));
             itemView.setOnClickListener(this);
 
@@ -71,7 +71,7 @@ public class ClassListFragment extends Fragment {
             mDaysTextView = (TextView) itemView.findViewById(R.id.class_days);
         }
 
-        public void bind(Class course) {
+        public void bind(Class course) { // set data for each course
             mClass = course;
             mTitleTextView.setText(mClass.getTitle());
             mProfTextView.setText(mClass.getProfessor());
@@ -81,10 +81,7 @@ public class ClassListFragment extends Fragment {
         }
 
         @Override
-        public void onClick(View view) {
-            /*Toast.makeText(getActivity(),
-                    mClass.getTitle() + " clicked!", Toast.LENGTH_SHORT)
-                    .show();*/
+        public void onClick(View view) { // open detail view on click
             Intent intent = ClassActivity.newIntent(getActivity(), mClass.getId());
             getActivity().startActivity( intent );
         }

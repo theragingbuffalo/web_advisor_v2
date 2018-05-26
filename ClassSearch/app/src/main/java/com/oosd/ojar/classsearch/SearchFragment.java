@@ -31,7 +31,7 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        new DownloadListings((SearchActivity)getActivity()).execute("https://gustavus.edu/registrar/webadvisor/mstrfall.html");
+        new DownloadListings((SearchActivity)getActivity()).execute("https://gustavus.edu/registrar/webadvisor/mstrfall.html"); // starting listings/descriptions download
 
         mAreaSpinner = (Spinner)view.findViewById(R.id.area_spinner);
         mDepartmentSpinner = (Spinner)view.findViewById(R.id.department_spinner);
@@ -39,7 +39,7 @@ public class SearchFragment extends Fragment {
         mSearchButton = (Button)view.findViewById(R.id.search_button);
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // get search parameter from input fields, initiate search and open detail view
                 Intent intent = new Intent(getActivity(), ClassListActivity.class);
                 String param = "";
                 String areaApproval = mAreaSpinner.getSelectedItem().toString();

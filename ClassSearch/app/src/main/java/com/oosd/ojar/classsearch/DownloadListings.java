@@ -26,6 +26,7 @@ public class DownloadListings extends AsyncTask<String, String, String> {
 
     public DownloadListings(SearchActivity searchActivity) { mSearchActivity = searchActivity; }
 
+    // download listings from online table for upcoming semester
     @Override
     protected String doInBackground(String... urlString) {
         URL url = null;
@@ -48,6 +49,7 @@ public class DownloadListings extends AsyncTask<String, String, String> {
             Element row = rows.get(i);
             Elements cols = row.select("td");
 
+            // add each class to central ClassRoom
             Class newClass = new Class(cols.get(0).text(), Integer.parseInt(cols.get(1).text()),
                     cols.get(2).text(), cols.get(3).text(), cols.get(4).text(), cols.get(5).text(),
                     cols.get(6).text(), cols.get(7).text());
@@ -58,7 +60,7 @@ public class DownloadListings extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        ClassRoom.get(mSearchActivity).addClasses(mClasses);
-        new DownloadDescriptions(mSearchActivity).execute();
+        ClassRoom.get(mSearchActivity).addClasses(mClasses); // add all classes to the central ClassRoom
+        new DownloadDescriptions(mSearchActivity).execute(); // only start to download descriptions when all listings are downloaded
     }
 }

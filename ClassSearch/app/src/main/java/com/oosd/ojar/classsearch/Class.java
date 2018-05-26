@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Class {
-
+    // pretty self-explanatory course fields
     private UUID mId;
     private String mTitle;
     private String mProfessor;
@@ -12,9 +12,9 @@ public class Class {
     private String mCode;
     private String mApprovals;
     private String mMeetingDays;
-    private String mStart;
-    private String mEnd;
-    private String mDescription = "";
+    private String mStart; // start time
+    private String mEnd; // end time
+    private String mDescription = ""; // filled in in DownloadDescriptions, not DownloadListings
     private boolean mIsSaved;
 
     public Class(String code, int synonym, String title, String meetingDays,

@@ -27,6 +27,7 @@ public class DownloadDescriptions extends AsyncTask<Void, Void, String> {
     private static final Map<String, String> DEPARTMENT_MAP = createMap();
     private static final String catalogBase = "https://gustavus.edu/general_catalog/current/";
 
+    // maps departments to corresponding URLs in online catalog
     private static Map<String, String> createMap() {
         Map<String, String> map = new HashMap<>();
         map.put("AFS", "africanstudies");
@@ -75,7 +76,8 @@ public class DownloadDescriptions extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... params) {
         mClasses = ClassRoom.get(mSearchActivity).getClasses("");
 
-        for (int i = 0; i < mClasses.size(); i++) { //first row is the col names so skip it.
+        // try to download description for each course
+        for (int i = 0; i < mClasses.size(); i++) {
             Class course = mClasses.get(i);
 
             String department = course.getCode().substring(0, 3);
@@ -90,27 +92,58 @@ public class DownloadDescriptions extends AsyncTask<Void, Void, String> {
 
             String description = "";
 
-            if (department.equals("CLA")) {
-
-            } else if (department.equals("GRE")) {
-
-            } else if (department.equals("LAT")) {
-
-            } else if (department.equals("IDS")) {
-
-            } else if (department.equals("NDL")) {
-
-            } else if (department.equals("SWE")) {
-
-            } else if (department.equals("SCA")) {
-
-            } else {
-                Document doc2 = null;
-                try {
-                    doc2 = Jsoup.parse(catalogURL, 3000);
-                } catch (IOException e) {
-                    e.printStackTrace();
+            Document doc2 = null;
+            try {
+                doc2 = Jsoup.parse(catalogURL, 3000);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (department.equals("GRE")) {
+                Elements strongs = doc2.select("h2[id=greek_courses] ~ p");
+                for(Element p : strongs) {
+                    if (p.text().contains(number)) {
+                        description = p.text();
+                        Log.d("taggy", description);
+                        break;
+                    }
                 }
+            } else if (department.equals("LAT")) {
+                Elements strongs = doc2.select("h2[id=latin_courses] ~ p");
+                for(Element p : strongs) {
+                    if (p.text().contains(number)) {
+                        description = p.text();
+                        Log.d("taggy", description);
+                        break;
+                    }
+                }
+            } else if (department.equals("IDS")) {
+                Elements strongs = doc2.select("p");
+                for(Element p : strongs) {
+                    if (p.text().contains(number) && !p.text().contains("NDL")) {
+                        description = p.text();
+                        Log.d("taggy", description);
+                        break;
+                    }
+                }
+            } else if (department.equals("NDL")) {
+                Elements strongs = doc2.select("p");
+                for(Element p : strongs) {
+                    if (p.text().contains(number) && p.text().contains("NDL")) {
+                        description = p.text();
+                        Log.d("taggy", description);
+                        break;
+                    }
+                }
+            } else if (department.equals("SCA")) {
+                Elements strongs = doc2.select("h3[id=scand_courses] ~ p");
+                for(Element p : strongs) {
+                    if (p.text().contains(number)) {
+                        description = p.text();
+                        Log.d("taggy", description);
+                        break;
+                    }
+                }
+            } else {
                 Elements strongs = doc2.select("p");
                 for(Element p : strongs) {
                     if (p.text().contains(number)) {
@@ -120,7 +153,7 @@ public class DownloadDescriptions extends AsyncTask<Void, Void, String> {
                     }
                 }
             }
-            course.setDescription(description);
+            course.setDescription(description); // will be empty if description was not found
         }
         return "success";
     }
